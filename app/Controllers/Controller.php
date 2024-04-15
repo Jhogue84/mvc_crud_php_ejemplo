@@ -5,8 +5,11 @@ namespace App\Controllers;
 class Controller
 {
     //metodo para la vista
-    function view($miVista)
+    function view($miVista, $datos = [])
     {
+        //destructurar array
+        extract($datos);
+
         if (file_exists("../resources/views/{$miVista}.php")) {
             ob_start();
             include "../resources/views/{$miVista}.php";
