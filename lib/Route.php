@@ -2,6 +2,8 @@
 //Enrutador, que llamarar los controladores
 namespace Lib;
 
+use App\Controllers\HomeController;
+
 class Route
 {
     //mejorando codigo
@@ -66,7 +68,18 @@ class Route
                 //echo json_encode($params);
                 //$callback(...$params); //desdoblar, extraer los elementos del array, como independientes.
 
-                $response = $callback(...$params); //guardar el valor del retorno de web.php
+                //$response = $callback(...$params); //guardar el valor del retorno de web.php
+                if (is_callable($callback)) {
+                    $response = $callback(...$params);
+                }
+
+                if (is_array($callback)) {
+                    //instanciar el controlador homeController, del array que estmos pasando, indicamos el indice
+                    $controller = new $callback[0];
+                    //usar el metodo de homecontroller que esta en la posicion 1, y tambien pasamos los parametros.
+                    $response = $controller->{$callback[1]}(...$params);
+                }
+
                 //echo $response;//es json
                 if (is_array($response) || is_object($params)) {
                     header("Content-type: application/json");
