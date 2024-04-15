@@ -2,12 +2,17 @@
 
 namespace App\Controllers;
 
+use App\Models\Producto;
+
 class HomeController extends Controller
 {
     function index()
     {
         //return "Hola desde pagina de Inicio con controller.";
         //return $this->view("home",); //+adelante, vistas por carpetas. aprendices.home, adelante reemplazar el . por el /
+
+        $productoModel = new Producto();
+
         return $this->view("home", ["titulo" => "HOME", "descripcion" => "Pagina de Home"]);
     }
 

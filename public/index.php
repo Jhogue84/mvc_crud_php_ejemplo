@@ -1,4 +1,5 @@
 <?php
+require_once("../app/Config/database.php");
 //la mejora es con el autoloader
 require_once("../autoloader.php");
 
@@ -19,6 +20,8 @@ Route::get("/mision", function () {
 });
 */
 require_once("../routes/web.php");
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +33,7 @@ require_once("../routes/web.php");
 </head>
 
 <body>
-    <h1>Index de la carpeta public</h1>
+    <h1>Index de la carpeta public, no necesario codigo html</h1>
 </body>
 
 </html>
