@@ -7,14 +7,17 @@ use mysqli;
 
 class Producto
 {
+    /*
+    protected $db_host = "localhost"; //para utilizar constantes definidas, incluir en el index
+    protected $db_user = "root";
+    protected $db_pass = "";
+    protected $db_name = "pedidos";*/
     protected $db_host = DB_HOST;
     protected $db_user = DB_USER;
     protected $db_pass = DB_PASS;
     protected $db_name = DB_NAME;
 
     protected $conexion; //variable para almacenar la conexion
-
-    protected $consulta;
 
     //constructor
     function __construct()
@@ -34,20 +37,11 @@ class Producto
         }
     }
 
-    function consultar($cadenaSql)
+    function listar()
     {
-        //$cadenaSql = "select * from productos";
-        //return $this->consulta = $this->conexion->consultar($cadenaSql);
-        $this->consulta = $this->conexion->query($cadenaSql);
-        return $this;
-    }
-    //metodos para recuperar la consulta, retornan
-    function primero()
-    {
-        return $this->consulta->fetch_assoc();
-    }
-    function todos()
-    {
-        return $this->consulta->fetch_all(MYSQLI_ASSOC);
+        $consulta = "select * from productos";
+        $rta = $this->conexion->query($consulta); //se ejecuta pero no retorna, almacenamo en variable
+        //return $rta->fetch_assoc();//json, asocia los resultados, me trae el primero
+        return $rta->fetch_all(MYSQLI_ASSOC); //todos los registros
     }
 }

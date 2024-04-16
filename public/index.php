@@ -23,6 +23,7 @@ require_once("../routes/web.php");
 
 
 ?>
+<!--
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,4 +37,4 @@ require_once("../routes/web.php");
     <h1>Index de la carpeta public, no necesario codigo html</h1>
 </body>
 
-</html>
+</html>-->
