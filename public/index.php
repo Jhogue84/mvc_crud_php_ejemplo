@@ -20,21 +20,3 @@ Route::get("/mision", function () {
 });
 */
 require_once("../routes/web.php");
-
-
-?>
-<!--
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=hh, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <h1>Index de la carpeta public, no necesario codigo html</h1>
-</body>
-
-</html>-->

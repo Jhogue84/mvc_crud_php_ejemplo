@@ -23,6 +23,8 @@ class HomeController extends Controller
         return $productoModel->primero();
         */
         //concatenar metodos. editar el modelo que retonre el objeto this.
-        return $productoModel->consultar($cadenaSql)->todos();
+        //return $productoModel->consultar($cadenaSql)->todos();
+        return $productoModel->all();
+        //return $productoModel->where("descripcion", "jamon de pollo")->primero();//aquie con el objeto aplico el otro metodo, primero o todos.
     }
 }
